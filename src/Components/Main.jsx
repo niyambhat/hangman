@@ -1,11 +1,11 @@
 import React, {useContext, useState} from "react"
 import NewGameScreen from './NewGameScreen'
-import Box from "./Box"
+import Box from "./HangmanInput"
 import { GameContext } from "../GameContext"
-import SorryScreen from "./SorryScreen"
+import SorryScreen from "./Modals/SorryScreen"
 import GameFrame from "./GameFrame"
 
-function Game() {
+function Main() {
 const {gameStarted, chancesLeft} = useContext(GameContext)
 return (
   <>
@@ -16,4 +16,4 @@ return (
     )}
   </>
 )}
-export default Game
+export default Main

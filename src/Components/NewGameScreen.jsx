@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { GameContext } from '../GameContext'
 function NewGameScreen() {
-const {gameStarted, setGameStarted} = useContext(GameContext)
+const {gameStarted, setGameStarted, setLevel} = useContext(GameContext)
 const startGame = ()=>{
   localStorage.setItem("hasGameStarted", "true")
   setGameStarted(true);
+  setLevel(1)
 }
   return (
     <div className="wrapNewScreen">
