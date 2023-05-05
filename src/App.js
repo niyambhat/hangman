@@ -1,6 +1,6 @@
 import "./App.css"
 import { GameProvider } from "./GameContext";
-import Game from "./Components/Game";
+import Main from "./Components/Main";
 import MemoAdvanced from "./Lessons/MemoAdvanced/MemoAdvanced";
 import MemoTraining from "./Lessons/MemoLesson/MemoTraining";
 import ContextRenderingLesson from "./Lessons/ContextRerendering/ContextRenderingLesson";
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <div className="frame">
       <GameProvider>
-      <Game/>
+      <Main/>
       </GameProvider>
       </div> 
     </div>

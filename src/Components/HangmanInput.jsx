@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { generateWords } from '../Services'
 import { GameContext } from '../GameContext'
 
-function Box(props) {
+function HangmanInput(props) {
   const {answer, setChancesLeft, selectedKey,setKeyBoardIsActive} = useContext(GameContext);
   const [correctValue, setCorrectValue] = useState(props.value)
   const [enteredValue, setEnteredValue] = useState("")
@@ -63,4 +62,4 @@ function Box(props) {
   }
 }
 
-export default Box
+export default HangmanInput;
