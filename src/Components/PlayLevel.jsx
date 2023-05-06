@@ -6,13 +6,16 @@ import Nav from './Nav';
 import KeyBoard from './KeyBoard';
 import HangmanInput from './HangmanInput';
 import { useRandomNumber } from '../Hooks/useRandomNumber';
+import Key from './Key';
 function PlayLevel() {
+const [keyPressed, setKeyPressed] = useState('');
+const [keyBoardIsActive, setKeyBoardIsActive] = useState(true)
 const {data, gameStarted, level} = useContext(GameContext);
 const rerender = useRandomNumber()
 
 const goToNextLevel=()=>{
  //check if vicorious 
- // 
+ // a
 }
 
 //
@@ -28,7 +31,9 @@ const goToNextLevel=()=>{
         )
       })
     }
+    
     </div>
+    <KeyBoard keyPressed={keyPressed} setKeyPressed={setKeyPressed}/>
     </>
     
     // <div>

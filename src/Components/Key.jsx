@@ -1,15 +1,13 @@
 import React,{useContext, memo} from 'react'
 import { GameContext } from '../GameContext'
 
-const Key=memo(({name})=> {
-  const {setSelectedKey, selectedKey, keyBoardIsActive} = useContext(GameContext)
-  const handleKeyClick=()=>{
-    setSelectedKey(name)
-  }
+const Key=memo(({name, keyPressed})=> {
+  const {keyBoardIsActive} = useContext(GameContext)
+
   return (
-    <button className='key' onClick={()=>handleKeyClick()} disabled={!keyBoardIsActive}>
-        {name}
-    </button>   
+    
+    <button className={`key ${name === keyPressed ? 'pressed' : ''}`}
+    type="submit" disabled={keyBoardIsActive} >{name}</button>
   )
 })
 

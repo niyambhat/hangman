@@ -1,7 +1,7 @@
-import React,{useContext} from 'react'
+import React,{useContext, memo} from 'react'
 import { GameContext } from '../GameContext'
 
-function Nav() {
+const Nav=memo(()=>{
   const {setGameStarted, level } =useContext(GameContext)
   const reset=()=>{
   localStorage.removeItem("hasGameStarted")
@@ -14,6 +14,6 @@ function Nav() {
     <button id="reset" onClick={()=>reset()}>Reset</button>
   </div>
   )
-}
+})
 
 export default Nav
