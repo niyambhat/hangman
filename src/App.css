@@ -169,13 +169,22 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: white;
+    background: rgba(0,0,0,0.4);
     right: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .modal .main{
+    background: white;
+    z-index: 999;
+    text-align: center;
+    height: 250px;
+    width: 300px;
+    padding: 20px;
   }
 
   #reset{

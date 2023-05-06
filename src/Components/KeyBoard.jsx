@@ -1,18 +1,18 @@
 import React,{useState, useEffect, useContext} from 'react'
 import Key from './Key'
 import { GameContext } from '../GameContext'
-
+import VictoryScreen from './Modals/VictoryScreen'
 const top = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
 const mid = ["A", "S", "D", "F", "G", "H", "J", "K", "L"]
 const bottom = ["Z", "X", "C", "V", "B", "N", "M"]
+
 function KeyBoard({keyPressed, setKeyPressed}) {
-    const {level, setUserInput} = useContext(GameContext)
+    const {level, userInput, setUserInput,setWin, win} = useContext(GameContext)
     const [userEntries, setUserEntries] = useState([])
     const [ans, setAns] = useState(level.ans.name.toUpperCase().split(''))
     useEffect(() => {
        pressKeyOnScreen();
       }, []);
-
 
     const pressKeyOnScreen=()=>{
         function handleKeyDown(event) {
@@ -36,7 +36,14 @@ function KeyBoard({keyPressed, setKeyPressed}) {
 
 useEffect(()=>{
 createMatchingArray(ans,userEntries)
-},[userEntries])
+},[userEntries, ans])
+
+useEffect(()=>{
+if(userInput){
+    let won = userInput.length === ans.length && userInput.every((value, index) => value === ans[index]);
+    if(won)setWin(true)
+}
+},[userInput])
 
 function createMatchingArray(arr, target) {
     const result = arr.map((element) => {
@@ -52,8 +59,10 @@ function createMatchingArray(arr, target) {
 
     return (
         <div>
-            {keyPressed}
-            <div className='keyRow'>
+            {
+                win ? <VictoryScreen/> : 
+                <>
+                <div className='keyRow'>
                 {
                     top.map((letter, i) => {
                         return (
@@ -76,7 +85,9 @@ function createMatchingArray(arr, target) {
                     })
                 }
             </div>
-
+                </>
+            }
+            
         </div>
     )
 }

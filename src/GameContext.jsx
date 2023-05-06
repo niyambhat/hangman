@@ -10,11 +10,11 @@ function GameProvider(props) {
   const [userInput, setUserInput] = useState()
   const [chancesLeft, setChancesLeft] = useState(5);
   const [level, setLevel] = useState({ id: 0, ans: '' });
-  const [win, setWin] = useState();
+  const [win, setWin] = useState(false);
 
 
   return (
-    <GameContext.Provider value={{ data, setData,gameData, setGameData, gameStarted, setGameStarted, level, setLevel, chancesLeft, userInput, setUserInput}}>
+    <GameContext.Provider value={{ data, setData,gameData, setGameData, gameStarted, setGameStarted, level, setLevel, chancesLeft, userInput, setUserInput, setWin, win}}>
       {props.children}
     </GameContext.Provider>
   );

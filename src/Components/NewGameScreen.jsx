@@ -5,7 +5,6 @@ const {gameStarted, setGameStarted, setLevel} = useContext(GameContext)
 const startGame = ()=>{
   localStorage.setItem("hasGameStarted", "true")
   setGameStarted(true);
-  setLevel(1)
 }
   return (
     <div className="wrapNewScreen">
