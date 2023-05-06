@@ -7,14 +7,14 @@ function GameProvider(props) {
   const [gameData, setGameData] = useState()
   const [gameStarted, setGameStarted] = useState(Boolean(localStorage.getItem("hasGameStarted")) || false );
   const [answer, setAnswer] = useState("");
+  const [userInput, setUserInput] = useState()
   const [chancesLeft, setChancesLeft] = useState(5);
   const [level, setLevel] = useState({ id: 0, ans: '' });
   const [win, setWin] = useState();
-  const [keyPressed, setKeyPressed] = useState('');
-  const [keyBoardIsActive, setKeyBoardIsActive] = useState(true)
+
 
   return (
-    <GameContext.Provider value={{ data, setData,gameData, setGameData, gameStarted, setGameStarted, level, setLevel, chancesLeft, keyPressed, setKeyPressed}}>
+    <GameContext.Provider value={{ data, setData,gameData, setGameData, gameStarted, setGameStarted, level, setLevel, chancesLeft, userInput, setUserInput}}>
       {props.children}
     </GameContext.Provider>
   );

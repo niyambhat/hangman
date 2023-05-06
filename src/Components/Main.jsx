@@ -1,6 +1,5 @@
 import React, {useContext, useState} from "react"
 import NewGameScreen from './NewGameScreen'
-import Box from "./HangmanInput"
 import { GameContext } from "../GameContext"
 import SorryScreen from "./Modals/SorryScreen"
 import GameFrame from "./GameFrame"
