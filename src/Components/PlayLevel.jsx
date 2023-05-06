@@ -1,10 +1,9 @@
 import React, {useEffect, useContext, useMemo, useState} from 'react'
-import Box from './HangmanInput'
 import { GameContext } from '../GameContext'
 import { generateWords } from '../Dictionary';
 import Nav from './Nav';
 import KeyBoard from './KeyBoard';
-import HangmanInput from './HangmanInput';
+import Slate from './Slate';
 import { useRandomNumber } from '../Hooks/useRandomNumber';
 import Key from './Key';
 function PlayLevel() {
@@ -23,15 +22,11 @@ const goToNextLevel=()=>{
     <>
     <Nav/>
     <div className='mainArea'>
-    <h1>{rerender}</h1> 
-    {
-      level.ans.name.split('').map((answer, i)=>{
-        return(
-          <h1>{answer}</h1>
-        )
-      })
-    }
-    
+    <p>Category: {level.ans.category}</p>
+    <div className='slate'>
+    <Slate answer={level.ans.name.toUpperCase().split('')}/>
+    </div>
+        
     </div>
     <KeyBoard keyPressed={keyPressed} setKeyPressed={setKeyPressed}/>
     </>
