@@ -41,9 +41,15 @@ createMatchingArray(ans,userEntries)
 useEffect(()=>{
 if(userInput){
     let won = userInput.length === ans.length && userInput.every((value, index) => value === ans[index]);
-    if(won)setWin(true)
+    if(won){
+        setWin(true);    
+    }
 }
 },[userInput])
+
+useEffect(()=>{
+setUserEntries([])
+},[win])
 
 function createMatchingArray(arr, target) {
     const result = arr.map((element) => {

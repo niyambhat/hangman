@@ -17,13 +17,12 @@ function VictoryScreen() {
   //   setUserInput(result)
   // }
 
-  useEffect(()=>{
-    setUserInput(Array(answer.length).fill(""))
-    },[win])
-
-
   const nexLevel=()=>{
+    debugger;
     let ans = gameData[level.id +1]
+    let ansInArray = ans.name.toUpperCase().split('')
+    let blankSlateArray = Array(ansInArray.length).fill("")
+    setUserInput(blankSlateArray)
     setLevel((prev)=>({id:prev.id+1,ans:ans}));
     setWin(false);
   }

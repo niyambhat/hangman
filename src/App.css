@@ -191,3 +191,83 @@
     height: 47px;
     font-size: 18px;
   }
+
+
+/* new  */
+
+#drawer-nav {
+  display: none;
+}
+
+.drawer-open #drawer-nav {
+  display: block;
+}
+
+#Settings{
+  position: absolute;
+  right: 0;
+}
+
+nav{
+  position: relative;
+}
+
+/* new */
+nav {
+
+  padding: 10px;
+  border-radius: 5px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+button:hover:not([disabled]) {
+  background-color: #3e8e41;
+}
+
+#Settings {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  background-color: #008CBA;
+  font-weight: bold;
+}
+
+#Settings:hover {
+  background-color: #0077A3;
+}
+
+.selected-level{
+  top: 38%;
+  right: 28%;
+  color: white;
+  background: black;
+  padding: 33px;
+  position: absolute;
+}
+
+.full_height{
+  height:100%;
+}
