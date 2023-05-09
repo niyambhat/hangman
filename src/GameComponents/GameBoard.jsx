@@ -25,8 +25,6 @@ function GameBoard({ levelsData }) {
     const [inputFields, setInputFields] = useState(Array(currentWord.length).fill(null));
     const [nextLevel,setNextLevel] =useState(false)
 
-
-
     useEffect(()=>{
       window.addEventListener('keydown', handleKeyPress);
       return () => {
@@ -49,8 +47,15 @@ function GameBoard({ levelsData }) {
     },[currentWord])
 
     useEffect(()=>{
+    if(remainingLives == 0) {
+      alert("Game Over")  
+      window.location.reload();
+    }
+    },[remainingLives])
+
+    useEffect(()=>{
     if(selectedLevelIndex < levelsData.length) handleLevelChange();
-    else alert('Cngratulations! You Won.👍👍👍👍');
+    else alert('Congratulations! You Won.👍👍👍👍');
     },[selectedLevelIndex])
 
     const increaseLevel=()=>{
@@ -84,7 +89,7 @@ function GameBoard({ levelsData }) {
             return updatedFields;
           });        
         } else {
-          setRemainingLives(remainingLives - 1);
+          setRemainingLives((prev)=>prev-1);
         }
       }
 
@@ -94,7 +99,7 @@ function GameBoard({ levelsData }) {
    <LevelNavigation levelsData={levelsData} selectedLevel={selectedLevel} onSelectLevel={handleLevelSelection} />
    {currentWord && (
         <>
-          <h1>Current Word: {currentWord}</h1>
+          <h1>Current Word: {selectedLevel.category}</h1>
         </>
       )}
       {
